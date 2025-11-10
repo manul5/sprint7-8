@@ -1,0 +1,108 @@
+#form-contacto {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  height: 100%; /* Asegura que ocupe toda la altura del contenedor padre */
+  padding: 1rem; /* Padding para la vista móvil */
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.2rem;
+  gap: 0.5rem;
+}
+
+.campo .label-form-contacto {
+  text-align: left;
+  align-self: flex-start;
+}
+
+.campo .inp-form-contacto {
+  width: 100%;
+}
+
+.label-form-contacto {
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #A0522D;
+}
+
+.label-form-contacto em {
+  color: #87A96B;
+  font-style: normal;
+}
+
+.inp-form-contacto {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 12px;
+  background: #F7F5F3;
+  color: #333;
+  font-family: "Inter", sans-serif;
+  font-size: 0.9rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.inp-form-contacto:focus {
+  border-color: #87A96B; 
+  box-shadow: 0 0 0 3px rgba(135, 169, 107, 0.15);
+  outline: none;
+}
+
+#btn-enviar {
+  background-color: #87A96B; 
+  border: none;
+  padding: 12px;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+#btn-enviar:hover {
+  background-color: #6f8859;
+  box-shadow: 0 5px 12px rgba(0,0,0,0.1);
+}
+
+.error {
+  color: #C47A6D; 
+  font-size: 0.9rem;
+  margin-top: 0.3rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.alerta-exito {
+  background: #d4edda;
+  color: #155724;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  border: 1px solid #c3e6cb;
+  text-align: center;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+  #form-contacto {
+    padding: 0; /* Quitamos el padding extra en tablet */
+    margin: 0;
+    max-width: none;
+  }
+}
+
+
+/* Desktop */
+@media (min-width: 1024px) {
+  #form-contacto {
+    max-width: none;
+  }
+}

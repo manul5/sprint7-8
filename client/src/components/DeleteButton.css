@@ -1,0 +1,25 @@
+.producto-informacion .btn-eliminar {
+  width: 100%;
+  padding: 0.9rem;
+  background-color: #ca182c;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  letter-spacing: 0.08em;
+  transition: background 0.3s ease;
+  display: block;
+  text-align: center;
+  margin: 0;
+  height: 48px;
+  box-sizing: border-box;
+  line-height: 1;
+}
+
+.producto-informacion .btn-eliminar:hover {
+  background-color: #8a4528;
+}

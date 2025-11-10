@@ -1,0 +1,153 @@
+.contact-page {
+  background: #ffffff;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: #333;
+  line-height: 1.6;
+  padding: 0.5rem 1rem 1rem;
+}
+
+#contacto1 {
+  background-color: #F5E6D3; 
+  text-align: center;
+  padding: 1.5rem 1rem;
+  border-radius: 0.8rem;
+}
+
+#contactanos {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #A0522D; 
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+}
+
+#seccion {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+
+#contacto2,
+#contacto-form {
+  padding: 2rem 1rem;
+  border-radius: 0.8rem;
+  border: 1px solid #d1d5db; /* Borde del formulario original */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* Sombra del formulario original */
+}
+
+#contacto2 {
+  background: #ffffff;
+}
+
+#contacto-form {
+  background: #F5E6D3;
+}
+
+#contacto2 > p {
+  margin-bottom: 2.5rem;
+}
+
+.contact-section-title {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #A0522D;
+  margin-bottom: 1.5rem;
+}
+
+#container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+#item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.8rem;
+}
+
+.iconos {
+  height: 48px;
+  width: 48px;
+  background-color: #F7F5F3;
+  border-radius: 30%;
+  padding: 10px;
+}
+
+#texto-titulo {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #A0522D;
+  margin-bottom: 0.3rem;
+}
+
+#info2 {
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+#p-contacto1 {
+  font-size: 0.95rem;
+  color: #444;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+  #seccion {
+    flex-direction: row;
+    gap: 3rem;
+    align-items: stretch; /* Para que ambas columnas tengan la misma altura */
+  }
+
+    #contacto2,
+  #contacto-form {
+    flex: 1;
+    width: calc(50% - 1.5rem); /* Asegura anchos iguales restando la mitad del gap */
+    padding: 3rem;
+  }
+
+
+  .contact-section-title {
+    font-size: 1.6rem;
+  }
+  
+  #item {
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: left;
+    gap: 1.5rem;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .contact-page {
+    padding: 1rem 4rem 2rem;
+  }
+
+  #contacto1 {
+    padding: 2.5rem 2rem;
+  }
+
+  #contactanos {
+    font-size: 2rem;
+  }
+  .contact-section-title {
+    font-size: 1.8rem;
+  }
+
+  #item {
+    gap: 2rem;
+  }
+
+  #info2 {
+    font-size: 1rem;
+  }
+}

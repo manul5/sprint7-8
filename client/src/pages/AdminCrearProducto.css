@@ -1,0 +1,264 @@
+/* ======================
+   BASE / MOBILE FIRST
+   ====================== */
+.admin-crear-producto {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 1rem;
+  font-family: 'Inter', sans-serif;
+  color: #333;
+  background-color: #F5E6D3; /* Alabastro Cálido */
+}
+
+/* HEADER */
+.admin-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #D4A437; /* Vara de Oro */
+  padding-bottom: 0.5rem;
+}
+
+.admin-header h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #A0522D; /* Siena Tostado */
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 0;
+}
+
+.btn-volver {
+  padding: 0.5rem 1rem;
+  background-color: #87A96B; /* Verde Salvia */
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-volver:hover {
+  background-color: #6e8960; /* Verde Salvia más oscuro */
+}
+
+/* MENSAJE FIJO */
+.fixed-mensaje {
+  position: fixed;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  color: white;
+  background-color: #28a745; /* éxito por defecto */
+  opacity: 0;
+  animation: fadeInOut 3s forwards;
+}
+
+.fixed-mensaje.error {
+  background-color: #C47A6D; /* Rosa Polvoriento */
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateX(-50%) translateY(20px); }
+  10% { opacity: 1; transform: translateX(-50%) translateY(0); }
+  90% { opacity: 1; transform: translateX(-50%) translateY(0); }
+  100% { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+}
+
+/* FORMULARIO */
+.form-producto {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-weight: 500;
+  color: #333; /* Negro */
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.6rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #D4A437; /* Vara de Oro */
+}
+
+/* Checkbox */
+.checkbox-group {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox-group input[type="checkbox"] {
+  margin-right: 0.5rem;
+}
+
+/* ESPECIFICACIONES */
+.especificacion-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.especificacion-item input {
+  padding: 0.45rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 0.9rem;
+}
+
+/* BOTONES */
+.btn-eliminar {
+  padding: 0.4rem 0.6rem;
+  background-color: #C47A6D; /* Rosa Polvoriento */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s;
+}
+
+.btn-eliminar:hover {
+  background-color: #a2605b;
+}
+
+.btn-agregar {
+  padding: 0.45rem 0.9rem;
+  background-color: #87A96B; /* Verde Salvia */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s;
+  margin-top: 0.3rem;
+}
+
+.btn-agregar:hover {
+  background-color: #6e8960;
+}
+
+/* ACCIONES DEL FORM */
+.form-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+/* BOTÓN CANCELAR - borde Siena */
+.btn-cancelar {
+  padding: 0.65rem 1.2rem;
+  background-color: transparent;
+  color: #A0522D; /* Siena Tostado */
+  border: 2px solid #A0522D;
+  border-radius: 6px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-cancelar:hover {
+  background-color: #A0522D;
+  color: white;
+}
+
+/* BOTÓN CREAR PRODUCTO */
+.btn-guardar {
+  padding: 0.65rem 1.2rem;
+  background-color: #A0522D; /* Siena Tostado */
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-guardar:hover {
+  background-color: #85431f;
+}
+
+/* ======================
+   TABLET + DESKTOP
+   ====================== */
+@media (min-width: 600px) {
+  .admin-crear-producto {
+    max-width: 900px;
+    padding: 2rem;
+  }
+
+  .admin-header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .admin-header h1 {
+    font-size: 2rem;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .form-actions {
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+
+  .especificacion-item {
+    grid-template-columns: 1fr 1fr auto;
+  }
+
+  .btn-eliminar {
+    width: auto;
+  }
+
+  .btn-cancelar,
+  .btn-guardar {
+    width: auto;
+  }
+}

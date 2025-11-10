@@ -1,0 +1,26 @@
+# dependencias de Node
+node_modules/
+backend/node_modules/
+client/node_modules/
+
+# build de React
+client/build/
+
+# variables de entorno
+.env
+backend/.env
+client/.env
+
+# Logs
+*.log
+npm-debug.log*
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo

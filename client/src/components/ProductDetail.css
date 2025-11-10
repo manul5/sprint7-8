@@ -1,0 +1,232 @@
+
+.product-detail {
+  background-color: #F5E6D3;
+  padding: 0.5rem;
+  min-height: 100vh;
+}
+
+.breadcrumb {
+  display: none;
+}
+
+article {
+  display: block;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  padding: 1rem;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.producto-imagen {
+  width: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+.producto-informacion {
+  font-family: 'Inter', sans-serif;
+  color: #333;
+}
+
+.producto-categoria {
+  display: inline-block;
+  color: #87A96B;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  font-size: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.producto-nombre {
+  font-family: 'Playfair Display', serif;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #A0522D;
+  margin-bottom: 0.8rem;
+  line-height: 1.2;
+}
+
+.producto-descripcion {
+  font-size: 0.85rem;
+  line-height: 1.4;
+  margin-bottom: 0.8rem;
+  color: #555;
+}
+
+.producto-precio {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #A0522D;
+  margin-bottom: 1.5rem;
+}
+
+.producto-especificaciones {
+  background: #F5E6D3;
+  padding: 0.8rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.producto-especificaciones h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  color: #A0522D;
+  margin-bottom: 0.8rem;
+}
+
+.producto-especificaciones ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.producto-especificaciones li {
+  font-size: 0.8rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+  line-height: 1.4;
+}
+
+.producto-especificaciones li strong {
+  font-weight: 600;
+}
+
+#btn-carrito {
+  width: 100%;
+  padding: 0.9rem;
+  background-color: #A0522D;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  letter-spacing: 0.08em;
+  transition: background 0.3s ease;
+  display: block;
+  text-align: center;
+  margin: 0;
+  height: 48px;
+  box-sizing: border-box;
+  line-height: 1;
+}
+
+#btn-carrito:hover {
+  background-color: #8a4528;
+}
+
+.actions-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+@media (min-width: 481px) {
+  .product-detail {
+    padding: 1rem;
+  }
+
+  article {
+    padding: 1.5rem;
+    border-radius: 10px;
+  }
+  
+  .producto-nombre {
+    font-size: 1.6rem;
+  }
+  
+  .producto-precio {
+    font-size: 1.4rem;
+  }
+  
+  .producto-especificaciones {
+    padding: 1rem;
+  }
+
+  #btn-carrito {
+    margin: 0;
+    min-height: 48px;
+  }
+}
+
+@media (min-width: 768px) {
+  .product-detail {
+    padding: 1.5rem;
+  }
+  
+  article {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 2rem;
+    align-items: start;
+    padding: 2rem;
+    border-radius: 12px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .producto-imagen {
+    width: 100%;
+    height: auto;
+    margin-bottom: 0;
+  }
+  
+  .breadcrumb {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    color: #555;
+    margin: 0 0 1rem 0;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .breadcrumb a {
+    text-decoration: none;
+    color: #A0522D;
+    font-weight: 500;
+  }
+
+  .breadcrumb a:hover { 
+    color: #8a4528; 
+  }
+  
+  .producto-especificaciones {
+    text-align: left;
+  }
+}
+
+@media (min-width: 1024px) {
+  .product-detail {
+    padding: 2rem;
+  }
+  
+  .producto-nombre {
+    font-size: 2rem;
+  }
+  
+  .producto-precio {
+    font-size: 1.6rem;
+  }
+  
+  .producto-descripcion {
+    font-size: 0.9rem;
+  }
+  
+  .breadcrumb {
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+}

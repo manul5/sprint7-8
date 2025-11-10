@@ -1,0 +1,83 @@
+
+.product-list {
+  padding: 1rem;
+  background-color: #F5E6D3;
+  min-height: 60vh;
+}
+
+.catalogo {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.catalogo h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #A0522D;
+}
+
+.catalogo p {
+  max-width: 700px;
+  margin: 0 auto 2rem auto;
+  color: #555;
+  font-size: 1.1rem;
+}
+
+.grid-productos {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+@media (min-width: 600px) {
+  .grid-productos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .grid-productos {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.estado-carga {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+}
+
+.cargando {
+  font-size: 1.2rem;
+  color: #666;
+  text-align: center;
+  padding: 2rem;
+}
+
+.error {
+  font-size: 1.2rem;
+  color: #d32f2f;
+  text-align: center;
+  padding: 2rem;
+  background-color: #ffebee;
+  border-radius: 8px;
+  border: 1px solid #ffcdd2;
+}
+
+.resultados-busqueda {
+  background: #f8f9fa;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  border-left: 4px solid #A0522D;
+}
+
+.resultados-busqueda p {
+  margin: 0;
+  color: #555;
+  font-weight: 500;
+}
