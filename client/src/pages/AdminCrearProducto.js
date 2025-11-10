@@ -65,7 +65,7 @@ export default function AdminCrearProducto({ onRefrescarProductos }) {
       };
 
       console.log("Datos que se envían:", productoData);
-      const response = await fetch('https://sprint5-6-1.onrender.com/api/productos', {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/productos`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(productoData),

@@ -9,7 +9,7 @@ export default function DeleteButton({ id, onRefrescarProductos}) {
     if (!confirmar) return;
 
     try {
-      const res = await fetch(`https://sprint5-6-1.onrender.com/api/productos/${id}`, {
+      const res = await fetch(`${process.env.REACT_APP_API_URL}/api/productos/${id}`, {
         method: "DELETE",
       });
 

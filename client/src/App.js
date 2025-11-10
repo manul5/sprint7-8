@@ -116,7 +116,7 @@ function App() {
 
   const fetchProductos = async () => {
     try {
-      const response = await fetch('https://sprint5-6-1.onrender.com/api/productos');
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/productos`);
       const data = await response.json();
       setProductos(data);
     } catch (error) {
