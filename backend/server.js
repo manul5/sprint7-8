@@ -35,8 +35,10 @@ app.get("/api/health", (req, res) => {
 // Routes
 const productosRoutes = require("./routes/productosRoutes");
 const authRoutes = require("./routes/authRoutes");
+const userRoutes = require("./routes/userRoutes");
 app.use("/api/productos", productosRoutes);
 app.use("/api/auth", authRoutes);
+app.use("/api/user", userRoutes);
 
 // 404 handler
 app.use((req, res) => {
