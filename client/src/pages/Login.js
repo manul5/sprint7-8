@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './Login.css';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
 export default function Login() {
@@ -51,6 +51,11 @@ export default function Login() {
 
         <button type="submit" className="btn">Ingresar</button>
       </form>
+
+      <p className="login-footer">
+        ¿No estás registrado? <Link to="/registro">Toca aquí para registrarte</Link>
+      </p>
+      
     </div>
   );
 }

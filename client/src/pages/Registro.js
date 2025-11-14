@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './Registro.css';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 export default function Registro() {
   const [nombre, setNombre] = useState('');
@@ -65,6 +65,11 @@ export default function Registro() {
 
         <button type="submit" className="btn" disabled={loading}>{loading ? 'Registrando...' : 'Crear cuenta'}</button>
       </form>
+
+      <p className="registro-footer">
+        ¿Ya tenés una cuenta? <Link to="/login">Logueate aquí</Link>
+      </p>
+
     </div>
   );
 }

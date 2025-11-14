@@ -100,7 +100,7 @@ export default function Navbar({ cantidadCarrito }) {
         {!isAuthenticated && (
           <>
             <Link to="/login" onClick={handleNavClick}>Login</Link>
-            <Link to="/registro" onClick={handleNavClick}>Registro</Link>
+            {/*<Link to="/registro" onClick={handleNavClick}>Registro</Link>*/}
           </>
         )}
 
