@@ -10,6 +10,9 @@ import Carrito from './pages/Carrito';
 import AdminCrearProducto from './pages/AdminCrearProducto';
 import Navbar from './components/Navbar';
 import ScrollToTop from './components/ScrollToTop';
+import Login from './pages/Login';
+import Registro from './pages/Registro';
+import Perfil from './pages/Perfil';
 
 // Wrapper para Home
 function HomePage({ productosDestacados, cargando }) {
@@ -178,7 +181,7 @@ function App() {
   const productosDestacados = productos.filter(p => p.destacado);
 
   return (
-    <Router>
+    <>
       <ScrollToTop />
       <div className="App">
         <Navbar cantidadCarrito={carrito.length} />
@@ -237,12 +240,27 @@ function App() {
               path="/admin/crear-producto" 
               element={<AdminCrearProducto onRefrescarProductos={fetchProductos}/>} 
             />
+            <Route 
+              path="/login" 
+              element={<Login />} 
+            />
+  
+            <Route 
+              path="/registro" 
+              element={<Registro />} 
+            />
+
+            <Route 
+              path="/perfil" 
+              element={<Perfil />} 
+            />
+
           </Routes>
         </main>
         
         <Footer />
       </div>
-    </Router>
+    </>
   );
 }
 

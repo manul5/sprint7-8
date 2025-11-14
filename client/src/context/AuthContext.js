@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useEffect, useState, useCallback } from 'react';
-import { simulateLogin, decodeJwt } from '../services/authService';
+import { decodeJwt } from '../services/authService';
 
 const AuthContext = createContext(null);
 
@@ -32,15 +32,25 @@ export function AuthProvider({ children }) {
   }, [token]);
 
   const login = useCallback(async (email, password) => {
-    // Llamar al servicio simulado
-    const res = await simulateLogin(email, password);
-    const newToken = res.token;
-    try {
-      localStorage.setItem('jwtToken', newToken);
-    } catch (e) {
-      console.error('No se pudo guardar token en localStorage', e);
+    
+    const apiUrl = process.env.REACT_APP_API_URL;
+
+    const res = await fetch(`${apiUrl}/api/auth/login`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, password }),
+    });
+
+    if (!res.ok) {
+      throw new Error(await res.text());
     }
+
+    const data = await res.json();
+    const newToken = data.token;
+
+    localStorage.setItem("jwtToken", newToken);
     setToken(newToken);
+
     return decodeJwt(newToken);
   }, []);
 
@@ -72,5 +82,9 @@ export function AuthProvider({ children }) {
 }
 
 export function useAuth() {
-  return useContext(AuthContext);
+  const context = useContext(AuthContext);
+  if (!context) {
+    throw new Error("useAuth debe usarse dentro de un AuthProvider");
+  }
+  return context;
 }

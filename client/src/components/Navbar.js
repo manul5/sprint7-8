@@ -1,8 +1,10 @@
 import { useState, useCallback, useRef } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 import "./Navbar.css";
 
 export default function Navbar({ cantidadCarrito }) {
+  const { isAuthenticated, logout, user } = useAuth();
   const [menuOpen, setMenuOpen] = useState(false);
   const [busquedaOpen, setBusquedaOpen] = useState(false);
   const [busqueda, setBusqueda] = useState("");
@@ -94,6 +96,32 @@ export default function Navbar({ cantidadCarrito }) {
         <Link to="/" onClick={handleNavClick}>Inicio</Link>
         <Link to="/productos" onClick={handleNavClick}>Productos</Link>
         <Link to="/contacto" onClick={handleNavClick}>Contacto</Link>
+
+        {!isAuthenticated && (
+          <>
+            <Link to="/login" onClick={handleNavClick}>Login</Link>
+            <Link to="/registro" onClick={handleNavClick}>Registro</Link>
+          </>
+        )}
+
+        {isAuthenticated && (
+          <>
+            <Link to="/perfil" onClick={handleNavClick}>Mi Perfil</Link>
+
+            <button
+              type="button"
+              className="logout-btn"
+              onClick={() => {
+                logout();
+                handleNavClick();
+                navigate("/");
+              }}
+            >
+              Logout
+            </button>
+          </>
+        )}
+
       </nav>
 
       {/* Buscador desktop */}
