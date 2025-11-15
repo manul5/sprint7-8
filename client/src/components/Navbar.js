@@ -1,9 +1,11 @@
 import { useState, useCallback, useRef } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import { useCart } from "../context/CartContext";
 import "./Navbar.css";
 
-export default function Navbar({ cantidadCarrito }) {
+export default function Navbar() {
+  const { cantidadCarrito } = useCart();
   const { isAuthenticated, logout, user } = useAuth();
   const [menuOpen, setMenuOpen] = useState(false);
   const [busquedaOpen, setBusquedaOpen] = useState(false);

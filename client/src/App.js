@@ -13,6 +13,8 @@ import ScrollToTop from './components/ScrollToTop';
 import Login from './pages/Login';
 import Registro from './pages/Registro';
 import Perfil from './pages/Perfil';
+import MisPedidos from './pages/MisPedidos';
+import { useCart } from "./context/CartContext";
 
 // Wrapper para Home
 function HomePage({ productosDestacados, cargando }) {
@@ -57,7 +59,8 @@ function ProductosPage({ productos, cargando }) {
 }
 
 // Wrapper para ProductDetail
-function ProductDetailPage({ productos, onAgregarCarrito, onRefrescarProductos }) {
+function ProductDetailPage({ productos, onRefrescarProductos }) {
+  const { agregarAlCarrito } = useCart();
   const { id } = useParams();
   const navigate = useNavigate();
   const producto = productos.find(p => p._id === id);
@@ -83,7 +86,7 @@ function ProductDetailPage({ productos, onAgregarCarrito, onRefrescarProductos }
     <ProductDetail 
       producto={producto}
       onVolver={() => navigate('/productos')}
-      onAgregarCarrito={onAgregarCarrito}
+      onAgregarCarrito={agregarAlCarrito}
       onRefrescarProductos={onRefrescarProductos}
     />
   );
@@ -97,14 +100,21 @@ function ContactPage() {
 }
 
 // Wrapper para Carrito
-function CarritoPage({ carrito, onEliminarItem, onVaciarCarrito, actualizarCantidad }) {
+function CarritoPage() {
+  const {
+    carrito,
+    eliminarDelCarrito,
+    vaciarCarrito,
+    actualizarCantidad
+  } = useCart();
+
   const navigate = useNavigate();
   
   return (
     <Carrito 
       carrito={carrito}
-      onEliminarItem={onEliminarItem}
-      onVaciarCarrito={onVaciarCarrito}
+      onEliminarItem={eliminarDelCarrito}
+      onVaciarCarrito={vaciarCarrito}
       onActualizarCantidad={actualizarCantidad}
       onSeguirComprando={() => navigate('/productos')}
       onVolver={() => navigate('/')}
@@ -113,7 +123,7 @@ function CarritoPage({ carrito, onEliminarItem, onVaciarCarrito, actualizarCanti
 }
 
 function App() {
-  const [carrito, setCarrito] = useState([]);
+  const { carrito } = useCart();
   const [productos, setProductos] = useState([]);
   const [cargando, setCargando] = useState(true);
 
@@ -133,58 +143,13 @@ function App() {
     fetchProductos();
   }, []);
 
-  const agregarAlCarrito = (producto) => {
-    setCarrito((prevCarrito) => {
-      const existente = prevCarrito.find((item) => item.id === producto.id);
-
-      if (existente) {
-        // Si el producto ya está, aumentar la cantidad
-        return prevCarrito.map((item) =>
-          item.id === producto.id
-            ? { ...item, cantidad: (item.cantidad || 1) + 1 }
-            : item
-        );
-      }
-
-      // Si no está, agregarlo con cantidad = 1
-      return [
-        ...prevCarrito,
-        { ...producto, cantidad: 1, carritoId: crypto.randomUUID() },
-      ];
-    });
-    alert(`¡${producto.nombre} agregado al carrito!`);
-  };
-
-  const eliminarDelCarrito = (carritoId) => {
-    setCarrito(carrito.filter(item => item.carritoId !== carritoId));
-  };
-
-  const vaciarCarrito = () => {
-    setCarrito([]);
-    alert('Carrito vaciado');
-  };
-
-  const actualizarCantidad = (carritoId, delta) => {
-    setCarrito(prevCarrito =>
-      prevCarrito
-        .map(item => {
-          if (item.carritoId === carritoId) {
-            const nuevaCantidad = (item.cantidad || 1) + delta;
-            return nuevaCantidad > 0 ? { ...item, cantidad: nuevaCantidad } : null;
-          }
-          return item;
-        })
-        .filter(Boolean)
-    );
-  };
-
   const productosDestacados = productos.filter(p => p.destacado);
 
   return (
     <>
       <ScrollToTop />
       <div className="App">
-        <Navbar cantidadCarrito={carrito.length} />
+        <Navbar/>
         
         <main>
           <Routes>
@@ -213,7 +178,6 @@ function App() {
               element={
                 <ProductDetailPage 
                   productos={productos}
-                  onAgregarCarrito={agregarAlCarrito}
                   onRefrescarProductos={fetchProductos}
                 />
               } 
@@ -227,12 +191,7 @@ function App() {
             <Route 
               path="/carrito" 
               element={
-                <CarritoPage 
-                  carrito={carrito}
-                  onEliminarItem={eliminarDelCarrito}
-                  onVaciarCarrito={vaciarCarrito}
-                  actualizarCantidad={actualizarCantidad}
-                />
+                <CarritoPage/>
               } 
             />
             
@@ -253,6 +212,11 @@ function App() {
             <Route 
               path="/perfil" 
               element={<Perfil />} 
+            />
+
+            <Route 
+              path="/mis-pedidos" 
+              element={<MisPedidos />} 
             />
 
           </Routes>

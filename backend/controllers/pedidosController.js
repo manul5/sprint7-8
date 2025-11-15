@@ -24,10 +24,6 @@ const crearPedido = async (req, res) => {
         return res.status(400).json({ error: `Producto no encontrado: ${item.productoId}` });
       }
 
-      if (prod.stock < item.cantidad) {
-        return res.status(400).json({ error: `Stock insuficiente para ${prod.nombre}` });
-      }
-
       // Precio actual del producto
       const subtotal = prod.precio * item.cantidad;
       total += subtotal;
@@ -37,10 +33,6 @@ const crearPedido = async (req, res) => {
         cantidad: item.cantidad,
         precio: prod.precio
       });
-
-      // Descontar stock
-      prod.stock -= item.cantidad;
-      await prod.save();
     }
 
     const nuevoPedido = await Pedido.create({

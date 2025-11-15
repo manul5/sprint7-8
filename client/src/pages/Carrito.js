@@ -1,9 +1,39 @@
 import './Carrito.css';
 import CarritoItem from '../components/CarritoItem';
+import { useCart } from "../context/CartContext";
+import { useAuth } from "../context/AuthContext";
 
-export default function Carrito ({ carrito, onEliminarItem, onVaciarCarrito, onSeguirComprando, onVolver, onActualizarCantidad }){
+export default function Carrito({ onSeguirComprando, onVolver }) {
+
+  const { 
+    carrito, 
+    eliminarItem: onEliminarItem, 
+    vaciarCarrito: onVaciarCarrito, 
+    actualizarCantidad: onActualizarCantidad,
+    finalizarCompra
+  } = useCart();
+
+  const { token } = useAuth();
+
   const calcularTotal = () => {
     return carrito.reduce((total, item) => total + item.precio * (item.cantidad || 1), 0);
+  };
+
+  const handleComprar = async () => {
+    try {
+      if (!token) {
+        alert("Debés estar logueado para finalizar la compra.");
+        return;
+      }
+
+      await finalizarCompra(token); 
+
+      alert("¡Compra realizada con éxito!");
+
+      onVolver();
+    } catch (err) {
+      alert("Hubo un error al realizar la compra.");
+    }
   };
 
   if (carrito.length === 0) {
@@ -39,7 +69,7 @@ export default function Carrito ({ carrito, onEliminarItem, onVaciarCarrito, onS
               onActualizarCantidad={onActualizarCantidad} 
             />
           ))}
-      </div>
+        </div>
 
         <div className="carrito-resumen">
           <h3>Resumen de Compra</h3>
@@ -50,17 +80,20 @@ export default function Carrito ({ carrito, onEliminarItem, onVaciarCarrito, onS
           
           <div className="carrito-acciones">
 
-            <button className="btn-vaciar" onClick={() => {
-              const confirmar = window.confirm("¿Seguro que querés vaciar el carrito?");
-              if (confirmar) onVaciarCarrito();
-            }}>
+            <button
+              className="btn-vaciar"
+              onClick={() => {
+                const confirmar = window.confirm("¿Seguro que querés vaciar el carrito?");
+                if (confirmar) onVaciarCarrito();
+              }}
+            >
               Vaciar Carrito
             </button>
             
-            <button className="btn-comprar">
+            <button className="btn-comprar" onClick={handleComprar}>
               Finalizar Compra
             </button>
-          
+
           </div>
 
           <button className="btn-seguir-comprando" onClick={onSeguirComprando}>
@@ -70,4 +103,4 @@ export default function Carrito ({ carrito, onEliminarItem, onVaciarCarrito, onS
       </div>
     </div>
   );
-};
+}
