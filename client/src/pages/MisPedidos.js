@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "../context/AuthContext";
+import './MisPedidos.css';
 
 export default function MisPedidos() {
   const { token } = useAuth();
@@ -22,7 +23,7 @@ export default function MisPedidos() {
   if (error) return <p>Error: {error}</p>;
 
   return (
-    <div>
+    <div className="mis-pedidos-page">
       <h1>Mis pedidos</h1>
 
       {pedidos.length === 0 ? (

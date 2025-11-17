@@ -1,0 +1,60 @@
+.perfil-page {
+  background-color: #ffffff;     
+  min-height: auto;              
+  padding: 1.5rem 2rem;
+  font-family: 'Inter', sans-serif;
+  max-width: 400px;              
+  margin: 4rem auto;             
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+}
+
+.perfil-page h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  color: #A0522D;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-align: left;
+  margin-bottom: 1rem;
+}
+
+.perfil-page p {
+  font-size: 0.95rem;
+  color: #4a3f35;
+  margin-bottom: 0.5rem;
+  text-align: left;
+}
+
+.perfil-page .btn {
+  display: inline-block;
+  margin-top: 1rem;
+  background-color: #87A96B;
+  color: white;
+  padding: 0.7rem 1.2rem;
+  border-radius: 14px;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  text-align: center;
+  width: 100%;
+  transition: 0.25s ease;
+}
+
+.perfil-page .btn:hover {
+  background-color: #6f8f58;
+  transform: translateY(-2px);
+}
+
+@media (min-width: 768px) {
+  .perfil-page h1 {
+    font-size: 2rem;
+  }
+
+  .perfil-page .btn {
+    width: auto;
+    padding: 0.85rem 1.6rem;
+  }
+}

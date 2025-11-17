@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "../context/AuthContext";
-import { Link } from "react-router-dom";  
+import { Link } from "react-router-dom"; 
+import './Perfil.css'; 
 
 export default function Perfil() {
   const { token } = useAuth();
@@ -32,11 +33,11 @@ export default function Perfil() {
   if (!data) return <p>Cargando...</p>;
 
   return (
-    <div>
-    <h1>Mi Perfil</h1>
-    <p><strong>Nombre:</strong> {data.user.name}</p>
-    <p><strong>Email:</strong> {data.user.email}</p>
-    <Link to="/mis-pedidos" className="btn">Mis pedidos</Link>
+    <div className="perfil-page">
+      <h1>Mi Perfil</h1>
+      <p><strong>Nombre:</strong> {data.user.name}</p>
+      <p><strong>Email:</strong> {data.user.email}</p>
+      <Link to="/mis-pedidos" className="btn">Mis pedidos</Link>
   </div>
   );
 }
