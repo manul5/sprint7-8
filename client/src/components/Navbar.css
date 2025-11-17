@@ -212,6 +212,18 @@ nav a:hover {
   font-weight: bold;
 }
 
+.logout-btn {
+  background: transparent;  
+  color: #333;          
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: color 0.3s, border-bottom 0.3s; 
+  border-bottom: 2px solid transparent;    
+}
+
 /* Responsive: tablets y desktop */
 @media (min-width: 481px) {
   header {
@@ -233,6 +245,10 @@ nav a:hover {
   .lupita-mobile img {
     width: 24px;
     height: 24px;
+  }
+  .logout-btn {
+    margin: 0 0 0 1rem; 
+    display: inline-block;
   }
 }
 

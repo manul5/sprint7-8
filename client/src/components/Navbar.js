@@ -114,9 +114,11 @@ export default function Navbar() {
               type="button"
               className="logout-btn"
               onClick={() => {
-                logout();
-                handleNavClick();
-                navigate("/");
+                if (window.confirm("¿Estás seguro que querés salir?")) {
+                    logout();
+                    handleNavClick();
+                    navigate("/");
+                  }
               }}
             >
               Logout
