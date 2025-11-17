@@ -41,7 +41,7 @@ export default function ProductDetail({ producto, onVolver, onAgregarCarrito, on
           </div>
 
           <div className="actions-container">
-            <button id="btn-carrito" onClick={() => onAgregarCarrito(producto)}>
+            <button id="btn-carrito" onClick={() => {onAgregarCarrito(producto); alert("Producto agregado al carrito");} }>
               Añadir al Carrito
             </button>
             <DeleteButton id={producto._id} onRefrescarProductos={onRefrescarProductos} />
