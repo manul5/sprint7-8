@@ -1,4 +1,11 @@
 require("dotenv").config();
+// Validar que existe JWT_SECRET
+if (!process.env.JWT_SECRET) {
+  console.error('\n⚠️  ERROR: Falta la variable JWT_SECRET en el archivo .env');
+  console.error('   Agregá una línea como: JWT_SECRET=tu_clave_secreta\n');
+  // Salimos para evitar errores posteriores al firmar tokens
+  process.exit(1);
+}
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");

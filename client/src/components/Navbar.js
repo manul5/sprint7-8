@@ -128,30 +128,32 @@ export default function Navbar() {
 
       </nav>
 
-      {/* Buscador desktop */}
-      {mostrarBusqueda && (
-        <form className="buscador-container" onSubmit={handleBuscar}>
-          <input 
-            type="text" 
-            placeholder="Buscar productos..." 
-            value={busqueda}
-            onChange={handleChange}
-            className="buscador-input"
-          />
-          <button type="submit" className="buscador-btn">
-            <img src="/assets/lupa.webp" alt="Buscar" />
-          </button>
-          {busqueda && (
-            <button 
-              type="button"
-              className="limpiar-btn"
-              onClick={limpiarBusqueda}
-            >
-              ✕
+      {/* Buscador desktop: siempre presente pero vacío si no es /productos */}
+      <form className="buscador-container" onSubmit={handleBuscar}>
+        {mostrarBusqueda && (
+          <>
+            <input 
+              type="text" 
+              placeholder="Buscar productos..." 
+              value={busqueda}
+              onChange={handleChange}
+              className="buscador-input"
+            />
+            <button type="submit" className="buscador-btn">
+              <img src="/assets/lupa.webp" alt="Buscar" />
             </button>
-          )}
-        </form>
-      )}
+            {busqueda && (
+              <button 
+                type="button"
+                className="limpiar-btn"
+                onClick={limpiarBusqueda}
+              >
+                ✕
+              </button>
+            )}
+          </>
+        )}
+      </form>
 
       <Link to="/carrito" className="carrito">
         <img src="/assets/carritoCompra.png" alt="Carrito de compras" />

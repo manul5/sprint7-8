@@ -17,6 +17,7 @@ header {
   font-family: 'Inter', sans-serif;
   color: #333;
   gap: 0.5rem;
+  min-height: 60px;
 }
 
 /* Menu toggle (mobile) */
@@ -154,10 +155,14 @@ nav a:hover {
 
 /* Buscador desktop */
 .buscador-container {
-  display: none;
+  display: flex;
   order: 3;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
+  min-width: 220px;
+  flex-shrink: 0;
+  height: auto;
 }
 .buscador-input {
   width: 180px;
@@ -295,6 +300,11 @@ nav a:hover {
 
   .buscador-container {
     display: flex;
+    min-width: 220px;
+    flex-shrink: 0;
+    height: auto;
+    align-items: center;
+    justify-content: center;
   }
 
   .carrito {
@@ -303,7 +313,4 @@ nav a:hover {
   }
 }
 
-/* Ajuste cuando no hay buscador */
-header:has(.buscador-container:empty) .carrito {
-  margin-left: auto;
-}
+
