@@ -4,8 +4,8 @@ Aplicación full-stack de e-commerce para mueblería, construida con React en el
 
 ## 🚀 Sitios Desplegados
 
-- **Frontend:** https://client-murex-pi-23.vercel.app
-- **Backend/API:** https://sprint5-6-1.onrender.com
+- **Frontend:** https://sprint7-8.vercel.app/
+- **Backend/API:** https://sprint7-8.onrender.com
 
 ## 👥 Integrantes del Equipo
 
@@ -51,11 +51,26 @@ Para correr el proyecto localmente, debes crear los siguientes archivos de varia
 PORT=3001
 NODE_ENV=development
 MONGODB_URI=mongodb+srv://equipo7:zek4Cb6XghNK3Vcf@cluster0.wsfgs1g.mongodb.net/HermanosJota?retryWrites=true&w=majority
+JWT_SECRET=equipo7
 ```
 
-### Frontend
+**Variables requeridas:**
+- `MONGODB_URI`: URL de conexión a MongoDB Atlas
+- `JWT_SECRET`: Clave secreta para firmar tokens JWT (usa una cadena larga y segura)
+- `PORT`: Puerto del servidor (por defecto 3001)
 
-No es necesario configurar variables de entorno para el frontend si usas la URL local por defecto. Si quieres consumir la API desplegada, puedes modificar la URL directamente en el código fuente (`App.js`).
+### Frontend (`client/.env`)
+
+Crea un archivo `.env` en la carpeta `client` con el siguiente contenido:
+
+```
+REACT_APP_API_URL=http://localhost:3001
+```
+
+**Variables:**
+- `REACT_APP_API_URL`: URL base de la API. En desarrollo usa `http://localhost:3001`, en producción usa la URL del backend desplegado (`https://sprint7-8.onrender.com`)
+
+⚠️ **Nota importante**: Las variables del frontend deben comenzar con `REACT_APP_` para ser accesibles en la aplicación React. Después de crear o modificar el `.env`, reinicia el servidor de desarrollo.
 
 ## 🚀 Instalación
 
