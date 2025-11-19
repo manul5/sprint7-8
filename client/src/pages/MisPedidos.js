@@ -36,8 +36,8 @@ export default function MisPedidos() {
 
             <ul>
               {p.items.map(i => (
-                <li key={i.producto._id}>
-                  {i.producto.nombre} x {i.cantidad}
+                <li key={i.producto?._id || i._id}>
+                  {i.producto ? `${i.producto.nombre} x ${i.cantidad}` : `Producto eliminado x ${i.cantidad}`}
                 </li>
               ))}
             </ul>

@@ -155,7 +155,7 @@ nav a:hover {
 
 /* Buscador desktop */
 .buscador-container {
-  display: flex;
+  display: none;
   order: 3;
   align-items: center;
   justify-content: center;
