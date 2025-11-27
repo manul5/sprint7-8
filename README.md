@@ -64,7 +64,11 @@ JWT_SECRET=equipo7
 Crea un archivo `.env` en la carpeta `client` con el siguiente contenido:
 
 ```
-REACT_APP_API_URL=http://localhost:3001
+REACT_APP_API_URL=https://sprint7-8.onrender.com
+
+# Para desarrollo local
+
+# REACT_APP_API_URL=http://localhost:3001
 ```
 
 **Variables:**
